@@ -1,0 +1,150 @@
+/* 02 — RESET & TYPOGRAPHY. No external font or tracking requests. */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+button,
+a {
+  transition:
+    color 0.18s,
+    background 0.18s,
+    border-color 0.18s;
+}
+button {
+  border: 0;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+a {
+  color: var(--forest);
+  text-underline-offset: 4px;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2 {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+}
+h1 {
+  font-size: 39px;
+  line-height: 1.18;
+  letter-spacing: -1.2px;
+}
+h2 {
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.55px;
+}
+h3 {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+em {
+  font-weight: 400;
+}
+strong {
+  font-weight: 600;
+}
+small {
+  display: block;
+}
+[hidden] {
+  display: none !important;
+}
+[data-icon] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+[data-icon] svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+i {
+  font-style: normal;
+}
+.eyebrow {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  color: #8b8b70;
+  margin-bottom: 13px;
+  line-height: 1.5;
+}
+.eyebrow.light {
+  color: var(--gold-light);
+}
+.body-copy {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+  margin: 17px 0;
+}
+.caption {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+.warning-text,
+.error-text {
+  color: var(--danger) !important;
+}
+.error-text {
+  font-size: 12px;
+  margin: 12px 0;
+}
+.positive {
+  color: #44765b;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+::selection {
+  background: #d8dfc9;
+  color: var(--forest-deep);
+}

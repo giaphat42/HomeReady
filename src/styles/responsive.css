@@ -1,0 +1,646 @@
+/* 06 — RESPONSIVE OVERRIDES. Desktop -> compact desktop -> tablet -> phone. */
+@media (min-width: 1550px) {
+  main {
+    padding-top: 45px;
+  }
+  h1 {
+    font-size: 45px;
+  }
+  .fund-content {
+    min-height: 185px;
+  }
+  .display-amount {
+    font-size: 60px;
+  }
+  .home-drawing {
+    width: 170px;
+    height: 155px;
+  }
+}
+@media (max-width: 1200px) {
+  :root {
+    --sidebar-width: 200px;
+  }
+  .sidebar {
+    padding: 28px 14px 0;
+  }
+  .brand {
+    font-size: 24px;
+  }
+  .brand-symbol {
+    margin-right: 7px;
+  }
+  .brand-symbol svg {
+    width: 23px;
+    height: 23px;
+  }
+  main {
+    padding: 30px 28px 18px;
+  }
+  .topbar {
+    padding: 0 28px;
+  }
+  h1 {
+    font-size: 34px;
+  }
+  .page-heading {
+    gap: 18px;
+  }
+  .hero-grid,
+  .overview-bottom {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 19px;
+  }
+  .fund-card {
+    padding: 23px 23px 0;
+  }
+  .display-amount {
+    font-size: 44px;
+  }
+  .home-drawing {
+    width: 110px;
+  }
+  .fund-content p {
+    font-size: 9px;
+  }
+  .direction-card {
+    padding: 23px;
+  }
+  .direction-card h2 {
+    font-size: 25px;
+  }
+  .financial-strip article {
+    padding: 0 16px;
+  }
+  .financial-strip strong {
+    font-size: 26px;
+  }
+  .card,
+  .rate-preview {
+    padding: 23px;
+  }
+  .projection-card .card-heading h2 {
+    font-size: 22px;
+  }
+  .asx-reference {
+    gap: 19px;
+  }
+  .asx-reference > a {
+    font-size: 9px;
+  }
+  .rates-layout {
+    grid-template-columns: 1.25fr 1fr;
+  }
+  .payment-comparison strong {
+    font-size: 27px;
+  }
+  .accounts-grid {
+    gap: 15px;
+  }
+  .account-card {
+    padding: 19px;
+  }
+  .scenario-insight {
+    align-items: flex-start;
+  }
+  .scenario-insight .text-button {
+    margin-top: 2px;
+  }
+}
+@media (max-width: 1000px) {
+  :root {
+    --sidebar-width: 182px;
+  }
+  .sidebar {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+  nav button {
+    padding-left: 9px;
+    gap: 9px;
+    font-size: 10px;
+  }
+  .nav-index,
+  .nav-new {
+    display: none;
+  }
+  .brand {
+    font-size: 22px;
+  }
+  .workspace-label {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .small-overline {
+    font-size: 6px;
+  }
+  .workspace-label p {
+    font-size: 13px;
+  }
+  .sidebar-quote {
+    padding-left: 7px;
+    font-size: 17px;
+  }
+  .hero-grid,
+  .overview-bottom {
+    grid-template-columns: 1fr;
+  }
+  .direction-card {
+    display: none;
+  }
+  .fund-content {
+    min-height: 165px;
+  }
+  .display-amount {
+    font-size: 50px;
+  }
+  .home-drawing {
+    width: 150px;
+  }
+  .overview-side {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .rate-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 25px;
+  }
+  .rate-preview > .eyebrow {
+    grid-column: 1 / -1;
+  }
+  .rate-preview h2 {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    margin: 0;
+  }
+  .rate-preview > p:not(.rate-change) {
+    grid-column: 1;
+    grid-row: 4 / 6;
+  }
+  .repayment-preview {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+  }
+  .rate-preview > .caption {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .rate-assumption {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .rate-preview > .rate-change {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  .rate-preview > .button {
+    grid-column: 2;
+    grid-row: 6;
+  }
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+  .two-column > .stack:last-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .rates-layout > .stack:last-child {
+    display: flex;
+  }
+  .financial-strip strong {
+    font-size: 24px;
+  }
+  .financial-strip article {
+    padding: 0 12px;
+  }
+  .financial-strip small {
+    font-size: 7px;
+  }
+  .asx-reference {
+    flex-wrap: wrap;
+  }
+  .asx-reference > a {
+    margin-left: auto;
+  }
+  .accounts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .account-summary {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  .snapshot-control {
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid #d8e0c8;
+    padding-top: 15px;
+  }
+  .footer-brand small {
+    display: none;
+  }
+  .page-heading {
+    align-items: flex-start;
+  }
+  .page-heading > .badge {
+    white-space: normal;
+    text-align: center;
+    max-width: 135px;
+  }
+}
+@media (max-width: 720px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+  .app-shell {
+    display: block;
+  }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 15px 16px 0;
+    z-index: 20;
+  }
+  .brand {
+    font-size: 24px;
+  }
+  .brand-symbol svg {
+    width: 22px;
+    height: 22px;
+  }
+  .workspace-label,
+  .sidebar-bottom {
+    display: none;
+  }
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+    margin-top: 14px;
+  }
+  nav button {
+    padding: 13px 5px;
+    flex: 1;
+    justify-content: center;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+    font-size: 9px;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  nav button.active {
+    background: none;
+    border-bottom-color: var(--gold);
+  }
+  nav button i svg {
+    width: 14px;
+    height: 14px;
+  }
+  .main-shell {
+    margin-left: 0;
+  }
+  .topbar {
+    height: 49px;
+    padding: 0 18px;
+  }
+  .breadcrumbs {
+    font-size: 8px;
+    gap: 11px;
+  }
+  .topbar-right {
+    font-size: 7px;
+    gap: 6px;
+  }
+  .topbar-right .icon-button {
+    margin-left: 6px;
+  }
+  .topbar-right svg {
+    width: 15px;
+    height: 15px;
+  }
+  .demo-tag {
+    font-size: 6px;
+    padding: 4px;
+  }
+  main {
+    padding: 27px 18px 16px;
+  }
+  .page-heading {
+    margin-bottom: 23px;
+    gap: 14px;
+  }
+  h1 {
+    font-size: 33px;
+  }
+  .page-heading p {
+    font-size: 10px;
+  }
+  .page-heading > .button {
+    font-size: 9px;
+    padding: 10px;
+  }
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+  .fund-card {
+    padding: 23px 23px 0;
+  }
+  .display-amount {
+    font-size: 49px;
+  }
+  .financial-strip {
+    margin: 19px 0;
+  }
+  .metric-label {
+    font-size: 8px;
+  }
+  .financial-strip strong {
+    font-size: 26px;
+  }
+  .financial-strip small {
+    font-size: 8px;
+  }
+  .financial-strip article {
+    padding: 0 15px;
+  }
+  .card-heading h2 {
+    font-size: 24px;
+  }
+  .two-column > .stack:last-child {
+    display: flex;
+  }
+  .privacy-explainer h2 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 480px) {
+  nav button {
+    font-size: 8px;
+    gap: 4px;
+  }
+  nav button i {
+    display: none;
+  }
+  nav button[data-page='accounts'] {
+    font-size: 7px;
+  }
+  .topbar {
+    padding: 0 15px;
+  }
+  .demo-tag {
+    display: none;
+  }
+  main {
+    padding: 24px 14px 14px;
+  }
+  h1 {
+    font-size: 31px;
+  }
+  .page-heading > .button {
+    max-width: 100px;
+    font-size: 8px;
+    gap: 8px;
+    white-space: normal;
+  }
+  .page-heading > .badge {
+    display: none;
+  }
+  .fund-card {
+    padding: 22px 19px 0;
+  }
+  .fund-heading .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .light-badge {
+    font-size: 7px;
+  }
+  .fund-content {
+    min-height: 150px;
+    gap: 8px;
+  }
+  .display-amount {
+    font-size: 43px;
+  }
+  .home-drawing {
+    width: 105px;
+    height: 120px;
+  }
+  .fund-content p {
+    font-size: 8px;
+    max-width: 180px;
+  }
+  .fund-footer {
+    font-size: 8px;
+  }
+  .financial-strip {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+  .financial-strip article {
+    padding: 20px;
+  }
+  .financial-strip article:nth-child(2) {
+    border-right: 0;
+  }
+  .financial-strip article:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+  .financial-strip strong {
+    font-size: 29px;
+    margin-top: 7px;
+  }
+  .financial-strip small {
+    font-size: 8px;
+  }
+  .card,
+  .rate-preview {
+    padding: 22px 18px;
+  }
+  .chart-legend {
+    gap: 15px;
+    font-size: 7px;
+  }
+  .projection-card .card-heading h2 {
+    font-size: 23px;
+  }
+  .scenario-slider label {
+    font-size: 9px;
+  }
+  .scenario-slider strong {
+    font-size: 21px;
+  }
+  .scenario-insight {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .rate-preview {
+    display: block;
+  }
+  .rate-preview h2 {
+    margin: 20px 0 14px;
+  }
+  .repayment-preview {
+    margin-top: 23px;
+  }
+  .form-grid {
+    gap: 19px 13px;
+  }
+  .form-grid label {
+    font-size: 9px;
+  }
+  .form-grid input {
+    font-size: 12px;
+    padding: 11px;
+  }
+  label small {
+    font-size: 8px;
+  }
+  .segmented button {
+    font-size: 9px;
+    padding: 10px 7px;
+  }
+  .calculation-flow strong {
+    font-size: 18px;
+  }
+  .calculation-flow small {
+    font-size: 7px;
+  }
+  .summary-card {
+    padding: 26px;
+  }
+  .asx-reference {
+    padding: 20px 18px;
+    gap: 18px;
+  }
+  .asx-reference strong {
+    font-size: 11px;
+  }
+  .asx-reference p {
+    font-size: 9px;
+  }
+  .asx-reference > a {
+    margin-left: 0;
+  }
+  .reference-mark {
+    font-size: 22px;
+  }
+  .rate-slider > div:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .rate-slider strong {
+    font-family: var(--font-ui);
+    font-size: 12px;
+  }
+  .payment-comparison strong {
+    font-size: 33px;
+  }
+  .sensitivity-card .card-heading {
+    flex-direction: column;
+  }
+  th,
+  td {
+    padding: 13px 10px;
+    font-size: 10px;
+  }
+  th {
+    font-size: 8px;
+  }
+  .table-foot {
+    flex-direction: column;
+    font-size: 9px;
+  }
+  .accounts-grid {
+    grid-template-columns: 1fr;
+  }
+  .account-summary {
+    padding: 21px;
+    gap: 22px;
+  }
+  .account-summary > div > span {
+    font-size: 8px;
+  }
+  .account-summary strong {
+    font-size: 27px;
+  }
+  .account-card {
+    padding: 25px;
+  }
+  .account-balance {
+    font-size: 36px;
+  }
+  .account-card label {
+    font-size: 10px;
+  }
+  .account-foot {
+    font-size: 9px;
+  }
+  .account-foot .text-button {
+    font-size: 10px;
+  }
+  .chat-prompts button {
+    font-size: 8px;
+  }
+  #messages {
+    min-height: 280px;
+    max-height: 430px;
+  }
+  .message {
+    font-size: 11px;
+  }
+  #chat-form input {
+    font-size: 10px;
+  }
+  .privacy-setting {
+    gap: 15px;
+  }
+  footer {
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 7px;
+  }
+  footer > span:nth-child(2) {
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+  footer button {
+    margin-left: auto;
+    font-size: 8px;
+  }
+  dialog {
+    padding: 30px 23px;
+  }
+  .welcome-dialog {
+    padding: 28px 25px 20px;
+  }
+  .welcome-brand {
+    margin-bottom: 24px;
+  }
+  .welcome-dialog h2 {
+    font-size: 33px;
+  }
+  .consent-row {
+    font-size: 10px;
+  }
+  .bank-choice {
+    padding: 11px;
+    gap: 8px;
+  }
+  .choice-status {
+    font-size: 7px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

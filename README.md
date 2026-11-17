@@ -1,0 +1,167 @@
+# HomeReady 2.1 - First-Home Planning and ML Forecasting
+
+HomeReady is an interactive first-home planning prototype developed for the **Westpac Innovation and Coding Competition 2026**. It brings a savings goal, a fictional account-based financial overview, mortgage-rate scenarios, locally trained cash-flow forecasting and a guided home-planning coach into one workspace.
+
+This version features a modular, readable codebase and a refined forest-green, ivory and champagne visual theme. It uses plain HTML, CSS and JavaScript without a frontend framework or third-party runtime dependencies.
+
+> **Prototype only.** Accounts and transactions are fictional. HomeReady is not affiliated with a bank, does not connect to real bank accounts, does not fetch live ASX data, and does not provide financial advice, a loan quote or an approval decision. The Home Coach is rule-based, not an LLM-powered AI service. Do not enter real banking credentials or personal financial records.
+
+## 1. Run locally in VS Code
+
+Requirements: **Node.js 18 or later**. Node.js 22 is also supported. No `npm install` is required.
+
+1. Unzip the project into a new directory; do not overwrite individual files in an older HomeReady version.
+2. In VS Code, select **File → Open Folder…** and open `HomeReady-V2` (the folder containing `package.json`).
+3. Select **Terminal → New Terminal** and run:
+
+   ```bash
+   npm start
+   ```
+
+4. Open **http://localhost:3000** in your browser.
+5. Read the prototype privacy notice on first launch. To try automatic calculations, explicitly allow the use of fictional account data. The separate **Remember on this device** option is off by default.
+
+Alternatively, select **Run → Start Debugging → HomeReady: run localhost** in VS Code. Use only one local server at a time.
+
+If port 3000 is in use:
+
+```bash
+PORT=3001 npm start
+```
+
+Then open **http://localhost:3001**. The development server listens locally; another person cannot access your machine by opening `localhost` on theirs.
+
+## 2. Project structure and reading order
+
+| Order | File or directory               | Purpose                                                                                     |
+| ----- | ------------------------------- | ------------------------------------------------------------------------------------------- |
+| 1     | `src/index.html`                | All screens, clearly separated into numbered sections                                       |
+| 2     | `src/styles/tokens.css`         | Theme colours, foundational typography and spacing tokens                                   |
+| 3     | `src/js/main.js`                | Application entry point and user interaction wiring                                         |
+| 4     | `src/js/config.js`              | Defaults, input limits and reference URLs                                                   |
+| 5     | `src/js/state/store.js`         | Shared state, opt-in persistence, data deletion and state validation                        |
+| 6     | `src/js/services/banking.js`    | Fictional three-month transaction aggregation and internal-transfer exclusion               |
+| 7     | `src/js/calculators/finance.js` | Savings, goal timeline, repayments and post-purchase budget calculations                    |
+| 8     | `src/js/features/`              | Feature-specific rendering for Overview, Plan, Forecast, Rates, Accounts, Coach and Privacy |
+| 9     | `src/js/data/demo-accounts.js`  | Fictional account and transaction fixtures                                                  |
+| 10    | `src/js/forecasting/`           | Synthetic monthly history, fitted Ridge model, validation and permission checks             |
+| 11    | `docs/FORECASTING.md`           | Model card and demo instructions                                                            |
+| 12    | `docs/ARCHITECTURE.md`          | Data flow, module responsibilities and extension guidance                                   |
+| 13    | `docs/PRODUCTION-READINESS.md`  | Security, privacy and integration gaps before a real release                                |
+
+### Stylesheets
+
+The stylesheets are loaded in a deliberate order:
+
+- `tokens.css` — global design tokens; the primary place to change the theme.
+- `base.css` — reset, typography and common text styles.
+- `layout.css` — sidebar, header, grid and footer.
+- `components.css` — reusable buttons, inputs, cards, tables and dialogs.
+- `pages.css` — feature-specific styles, with labelled sections.
+- `responsive.css` — smaller desktops, tablets, phones and reduced-motion preferences.
+- `forecast.css` — forecasting cards, chart, validation table and responsive layout.
+
+The source is formatted for two-space indentation. VS Code settings include word wrap and format-on-save, while `.prettierrc.json` defines optional Prettier formatting rules. Prettier is not needed to run the application.
+
+**Edit `src/`, not `dist/`.** The `dist/` directory is generated by the build command and is hidden from the VS Code Explorer. After editing source, save with **⌘S** and refresh the browser with **⌘R**. The development server does not provide live reload; the application's _automatic_ behaviour refers to its financial recalculations.
+
+## 3. Key features
+
+### Automatic Home Plan
+
+The planning pipeline is:
+
+`Selected fictional accounts → 3-month income and expenses → protected cash buffer → monthly savings → goal timeline and chart`
+
+- Automatic mode is available when the user grants permission to use the sample accounts during onboarding.
+- Valid edits in **My home plan** and **Rate Lab** recalculate dependent outputs immediately, without a Save button.
+- Each connected fictional account has its own percentage allocation to the home savings fund.
+- Adding an account, disconnecting it or changing its allocation updates the allocated balance and dependent calculations.
+- **Simulate a new snapshot** swaps to another fictional dataset to demonstrate recalculation; it does **not** synchronise with a real bank.
+- Transfers between accounts belonging to the same fictional customer are excluded from income and spending.
+- **Manual mode** allows the user to adjust independently copied values without using fictional account aggregation.
+- The **Use this plan** action for additional savings reduces the protected buffer in Automatic mode or increases the contribution in Manual mode, provided the change fits the current surplus.
+
+### AI Forecast: working local machine learning
+
+- Fits Ridge regression coefficients from 36 consecutive synthetic monthly records, separately for income and expenses.
+- Learns a time trend and annual calendar effects. Training and prediction run in the browser; no API key or Python installation is needed.
+- Compares Ridge with a trailing three-month mean using six rolling one-month validation forecasts. Each fit only sees past data.
+- Selects the method with lower validation MAE for each series; ties use the simple baseline.
+- Forecasts six monthly income, expense and net-cash values, with a projected home fund and an explicitly illustrative stress range.
+- Offers an additional-expense scenario, a month-by-month table and an exportable model report.
+- Recalculates for account selection, snapshot, buffer and balance allocation changes. Forecasting is unavailable without sample-data permission, in Manual mode, or with transfer-only accounts.
+- The previous 33 months are invented training fixtures; the final three reconcile with the selected account snapshot. This is a working model on synthetic data, **not validated customer-level forecasting**.
+- Home Coach explains model outputs through templates. It remains a rule-based interface, not an LLM.
+
+See [the model card](docs/FORECASTING.md) for methods, data provenance, validation, limitations and a short demo script.
+
+### Rate Lab and ASX reference
+
+- Includes an external link to the [ASX RBA Rate Tracker](https://www.asx.com.au/markets/trade-our-derivatives-market/futures-market/rba-rate-tracker) for context on market-implied cash-rate expectations.
+- The ASX tracker is based on interest-rate futures; it is **not** a lender's mortgage-rate quote.
+- **No live ASX feed or live probabilities are displayed.** The rate inputs are explicitly illustrative.
+- Users can adjust a mortgage rate, loan term, hypothetical RBA cash-rate change and assumed lender pass-through percentage.
+- Scenario mortgage rate = mortgage rate + (cash-rate change × pass-through), floored at 0%.
+- The sensitivity table independently changes the mortgage rate directly; it does not use the pass-through slider.
+- The principal is based on property price minus the target deposit. The separate purchase-cost buffer is not borrowed as principal.
+- Repayments model monthly principal and interest only; they exclude offsets, lender fees, lenders mortgage insurance (LMI) and interest-only periods.
+- The post-purchase budget removes current rent, adds the illustrated mortgage repayment and adds an ownership-cost buffer. It does not deduct pre-purchase saving contributions again.
+- The default **6.25%** mortgage rate and **$350** ownership-cost buffer are demo assumptions, not current market figures or tailored quotes.
+
+### Privacy and data control
+
+- The prototype privacy notice appears before the user starts.
+- Permission to use sample accounts and consent to local browser storage are separate, unchecked choices.
+- Manual mode is available without using sample accounts.
+- With storage disabled, inputs exist only in application memory and are lost on refresh or closing the page.
+- With storage enabled, workspace state is saved in the current origin's `localStorage` until it is disabled or cleared.
+- Disabling persistence immediately removes the stored copy while preserving the current in-memory session.
+- **Privacy & control** provides sample-data permission withdrawal, JSON export and complete application-data clearing.
+- Clearing all data removes both the V2 and older V1 storage keys, resets the in-memory chat and returns the app to onboarding.
+- The application requests no external fonts, analytics, bank data or AI service, and sends no form inputs or chat content to an application backend.
+- A hosting provider may independently manage page delivery, access logs or authentication; the application cannot delete those records.
+
+This notice describes the behaviour of the **prototype**. It is not a banking contract, an accreditation claim or a certification of regulatory compliance. See `docs/PRODUCTION-READINESS.md` before considering a real customer-facing service.
+
+## 4. Checks, tests and production build
+
+```bash
+npm run check
+npm test
+npm run build
+```
+
+- `check` validates the syntax of every JavaScript source module.
+- `test` covers aggregation, internal-transfer exclusion, automatic recalculation, permission and storage handling, zero-interest repayments, cash-rate pass-through, budgets and edge cases. Forecast tests cover leakage prevention, independent numerical equivalence, baseline selection, data reconciliation, deficits and permission handling.
+- `build` regenerates the deployable `dist/` directory from `src/`. Never make manual source edits inside `dist/`.
+
+## 5. Suggested competition demo
+
+1. Read the privacy notice, permit **fictional sample account data**, then select **Explore with sample accounts**. Only enable **Remember on this device** if desired.
+2. Show the initial Overview: **$42,500** allocated home savings, **$145,000** target, **$6,200** average monthly income, **$3,800** average monthly expenses, **$600** protected buffer and **$1,800** monthly savings.
+3. In **My home plan**, change the property price or buffer to demonstrate immediate recalculation.
+4. In **Connected accounts**, select **Simulate a new snapshot**. Show the updated **$6,400** monthly income, **$44,300** home fund and **$2,000** monthly savings.
+5. In **Rate Lab**, adjust the assumed cash-rate change and lender pass-through; highlight the effect on estimated repayments and the post-purchase budget.
+6. Open **AI Forecast**, inspect the selected methods and validation MAEs, then enter **500** additional monthly expenses to see six-month net cash fall by **$3,000**.
+7. Open **Privacy & control** to demonstrate local-storage opt-in, account permission withdrawal and export.
+
+For the Westpac competition, record a **maximum 10-minute** walkthrough showing the working prototype. Include the video link and any publicly hosted demo link in the team submission.
+
+## 6. Known prototype limitations
+
+- All accounts, transactions and simulated account snapshots are fictional.
+- Forecast validation uses synthetic data and only six rolling one-step errors. It is not an independent test, six-month accuracy estimate or calibrated probability.
+- **Home Coach uses rule-based responses and tested financial calculations, not a connected LLM.**
+- ASX is an external reference link plus a hypothetical rate calculator, not a real-time ASX integration.
+- The project has no customer backend, database, bank OAuth/CDR integration or application account authentication.
+- All balances, figures and dates in the sample profile are invented and are not a real person's records.
+- The local VS Code copy is independent of any deployed site. Source changes are not automatically published online.
+
+## 7. Submission and repository notes
+
+Repository: [HomeReady on GitHub](https://github.com/giaphat42/HomeReady)
+
+Always verify the latest repository changes before uploading a replacement build. Keep API keys, customer credentials and genuine financial data out of Git history. The ZIP supplied for this project is a local development package; it is not automatically pushed to GitHub.
+
+See the architecture and production-readiness documents for a deeper technical overview.

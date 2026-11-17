@@ -1,0 +1,847 @@
+/* 05 — PAGE-SPECIFIC PRESENTATION. Each group matches a feature module. */
+
+/* Overview: fund, cash flow, projection and rate preview. */
+.fund-card {
+  background: var(--forest);
+  border-radius: var(--radius);
+  padding: 26px 29px 0;
+  color: #f8f4e9;
+  position: relative;
+  overflow: hidden;
+}
+.fund-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+.fund-heading .eyebrow {
+  margin-bottom: 0;
+  font-size: 8px;
+}
+.light-badge {
+  background: #ffffff08;
+  border: 1px solid #b4c2a42a;
+  color: #b6c7ac;
+  font-size: 8px;
+  padding: 6px 9px;
+  border-radius: 2px;
+}
+.fund-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 157px;
+  gap: 15px;
+}
+.display-amount {
+  font-family: var(--font-editorial);
+  font-size: 51px;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+.fund-content p {
+  color: #9db29e;
+  font-size: 10px;
+  margin-top: 9px;
+  line-height: 1.8;
+}
+.fund-content p strong {
+  color: #d4ddc9;
+  font-weight: 500;
+}
+.home-drawing {
+  width: 144px;
+  height: 140px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1;
+  opacity: 0.85;
+}
+.fund-track {
+  height: 3px;
+  background: #a3b69526;
+  overflow: hidden;
+}
+.fund-track > div {
+  height: 100%;
+  background: var(--gold-light);
+  transition: width 0.3s;
+}
+.fund-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #a6ba9e;
+  margin: 12px 0 21px;
+}
+.fund-progress-label span:first-child {
+  color: var(--gold-light);
+}
+.fund-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #a3b69520;
+  padding: 17px 0;
+  font-size: 9px;
+  color: #8fa88c;
+  gap: 15px;
+}
+.fund-footer strong {
+  font-weight: 500;
+  color: #c1d0b4;
+  margin-left: 5px;
+}
+.direction-card {
+  background: #eceee5;
+  border: 1px solid #e1e3d4;
+  padding: 26px 27px 19px;
+  border-radius: var(--radius);
+}
+.direction-icon {
+  color: #a38b60;
+  width: 31px;
+  height: 31px;
+  border: 1px solid #cfcbb2;
+  border-radius: 50%;
+  margin: 2px 0 13px;
+}
+.direction-icon svg {
+  width: 15px;
+  height: 15px;
+}
+.direction-card h2 {
+  max-width: 260px;
+  font-size: 27px;
+}
+.direction-card > p {
+  color: #8a927b;
+  font-size: 11px;
+  line-height: 1.9;
+  margin: 12px 0 20px;
+  max-width: 280px;
+}
+.direction-foot {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border-top: 1px solid #d9decb;
+  padding-top: 14px;
+  margin-top: 22px;
+  font-size: 6px;
+  letter-spacing: 0.7px;
+  color: #939d80;
+}
+.direction-foot svg {
+  width: 10px;
+  height: 10px;
+}
+.financial-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 27px 0;
+  padding: 22px 0;
+  background: #fffefa88;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.financial-strip article {
+  padding: 0 23px;
+  border-right: 1px solid var(--line);
+}
+.financial-strip article:last-child {
+  border-right: 0;
+}
+.metric-label {
+  font-size: 9px;
+  color: #849077;
+}
+.financial-strip strong {
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: 29px;
+  font-weight: 400;
+  letter-spacing: -0.65px;
+  margin: 10px 0 8px;
+}
+.financial-strip small {
+  color: #9da58f;
+  font-size: 8px;
+  line-height: 1.6;
+}
+.projection-card .card-heading {
+  margin-bottom: 23px;
+}
+.projection-card .card-heading h2 {
+  max-width: 340px;
+  font-size: 23px;
+}
+.chart-legend {
+  display: flex;
+  gap: 22px;
+  font-size: 8px;
+  color: #8a957c;
+}
+.chart-legend span {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.legend-line {
+  display: inline-block;
+  width: 12px;
+  border-top: 2px solid var(--forest);
+}
+.legend-line.gold {
+  border-color: var(--gold);
+}
+.legend-line.dashed {
+  border-top: 1px dashed #a9af9b;
+}
+.savings-chart {
+  margin: 18px 0 7px;
+}
+.savings-chart svg {
+  display: block;
+  width: 100%;
+}
+.savings-chart text {
+  fill: #9ca48e;
+  font: 9px var(--font-ui);
+}
+.chart-grid {
+  stroke: #edf0e3;
+}
+.chart-target {
+  stroke: #abb59c;
+  stroke-dasharray: 4 5;
+}
+.chart-base {
+  fill: none;
+  stroke: var(--forest);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.chart-extra {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-dasharray: 6 4;
+}
+#chart-horizon {
+  font-size: 8px;
+}
+.scenario-slider {
+  margin-top: 22px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.scenario-slider > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.scenario-slider label {
+  font-size: 10px;
+}
+.scenario-slider strong {
+  font-family: var(--font-editorial);
+  font-size: 23px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.scenario-slider strong small {
+  font-family: var(--font-ui);
+  color: #9ba38d;
+  font-size: 8px;
+  display: inline;
+  margin-left: 5px;
+}
+.scenario-insight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-top: 19px;
+}
+.scenario-insight strong {
+  font-size: 11px;
+}
+.scenario-insight p {
+  font-size: 9px;
+  color: #9aa28b;
+  margin-top: 6px;
+  line-height: 1.7;
+}
+.scenario-insight .text-button {
+  font-size: 9px;
+  flex-shrink: 0;
+}
+.rate-preview {
+  padding: 27px;
+  border: 1px solid #ded9c6;
+  background: #efede3;
+  border-radius: var(--radius);
+  flex: 1;
+}
+.rate-preview h2 {
+  font-size: 32px;
+  line-height: 1.1;
+  margin: 18px 0 15px;
+}
+.rate-preview > p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #8f9179;
+  max-width: 280px;
+}
+.repayment-preview {
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: 35px;
+  font-weight: 400;
+  margin: 24px 0 3px;
+}
+.rate-preview > .caption {
+  font-size: 8px;
+}
+.rate-assumption {
+  color: #8c9179;
+  font-size: 9px;
+  padding: 13px 0;
+  margin-top: 10px;
+  border-top: 1px solid #dcdcc9;
+}
+.rate-preview .rate-change {
+  font-size: 9px;
+  margin-bottom: 18px;
+  color: #8c7b50;
+}
+.connection-preview {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 19px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.connection-preview > i {
+  color: #8c9c7a;
+}
+.connection-preview strong {
+  font-size: 10px;
+  font-weight: 500;
+}
+.connection-preview p {
+  font-size: 9px;
+  margin-top: 5px;
+  color: #9aa68b;
+}
+.connection-preview button {
+  margin-left: auto;
+}
+
+/* Plan. */
+.summary-card {
+  background: var(--forest);
+  border-radius: var(--radius);
+  color: #eff0e0;
+  padding: 29px;
+}
+.summary-card h2 {
+  font-size: 38px;
+  margin: 20px 0 10px;
+}
+.summary-card > p {
+  color: #b3c1a5;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.summary-card dl > div {
+  border-color: #ffffff17;
+}
+.summary-card dt {
+  color: #94ac8b;
+}
+.summary-card dd {
+  color: #d9dfca;
+}
+.summary-card .summary-foot {
+  font-size: 10px;
+  color: #afbf9f;
+  margin-top: 20px;
+}
+.summary-card > .text-button {
+  margin-top: 24px;
+}
+.method-card h3 {
+  font-family: var(--font-editorial);
+  font-size: 22px;
+  font-weight: 400;
+}
+.method-card p {
+  font-size: 11px;
+  line-height: 1.95;
+  color: #8c967c;
+  margin-top: 16px;
+}
+.standalone-label {
+  max-width: 280px;
+}
+.calculation-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 21px 0;
+  margin: 20px 0 8px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.calculation-flow span {
+  display: block;
+}
+.calculation-flow small {
+  font-size: 8px;
+  color: #959f85;
+  margin-bottom: 6px;
+}
+.calculation-flow strong {
+  font-family: var(--font-editorial);
+  font-size: 21px;
+  font-weight: 400;
+}
+.calculation-flow > b {
+  font-size: 10px;
+  color: #afb79f;
+}
+.flow-result {
+  color: #7e6a3d;
+}
+
+/* Rate Lab. */
+.asx-reference {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #d8ddcb;
+  background: #ecefe5;
+  border-radius: var(--radius);
+}
+.reference-mark {
+  font-size: 24px;
+  letter-spacing: -0.8px;
+  font-weight: 600;
+  color: #728068;
+  flex-shrink: 0;
+}
+.reference-mark > span {
+  display: block;
+  font-size: 6px;
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+}
+.asx-reference > div {
+  flex: 1;
+}
+.asx-reference strong {
+  font-size: 12px;
+}
+.asx-reference p {
+  color: #8b967b;
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 7px;
+  max-width: 680px;
+}
+.asx-reference > a {
+  flex-shrink: 0;
+}
+.loan-principal {
+  margin: 0 0 26px;
+  padding: 20px;
+  background: #f1f3e9;
+  border: 1px solid #e3e7d6;
+}
+.loan-principal > span {
+  font-size: 9px;
+  color: #89997a;
+}
+.loan-principal > strong {
+  font-family: var(--font-editorial);
+  font-size: 35px;
+  display: block;
+  font-weight: 400;
+  margin: 7px 0;
+}
+.loan-principal small {
+  color: #929f83;
+  font-size: 9px;
+}
+.rate-slider strong {
+  font-family: var(--font-ui);
+  font-size: 12px;
+}
+.equation {
+  background: #f4f1e5;
+  color: #9c8651;
+  border-left: 2px solid var(--gold);
+  padding: 13px;
+  font-size: 10px;
+  line-height: 1.9;
+  margin: 19px 0 14px;
+}
+.repayment-card {
+  background: #e9ede0;
+  border: 1px solid #d9dfc9;
+  padding: 26px;
+  border-radius: var(--radius);
+}
+.payment-comparison {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 9px;
+  margin: 24px 0;
+}
+.payment-comparison > div > span {
+  color: #8a9879;
+  font-size: 9px;
+}
+.payment-comparison b {
+  font-weight: 400;
+}
+.payment-comparison strong {
+  display: block;
+  font-size: 32px;
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  margin-top: 12px;
+}
+.payment-comparison > i {
+  color: #9ba98b;
+}
+.payment-change {
+  border-top: 1px solid #d2dbc1;
+  padding-top: 17px;
+}
+.payment-change span {
+  font-size: 13px;
+  color: #5d7752;
+}
+.payment-change small {
+  color: #9aa68a;
+  font-size: 9px;
+  margin-top: 7px;
+}
+.sensitivity-card {
+  margin-top: 25px;
+}
+
+/* Accounts. */
+.account-summary {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: #edf0e5;
+  border: 1px solid #dce2cf;
+  padding: 25px;
+  margin-bottom: 24px;
+}
+.account-summary > div > span {
+  font-size: 9px;
+  color: #909d7e;
+}
+.account-summary strong {
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: 29px;
+  font-weight: 400;
+  margin-top: 9px;
+}
+.snapshot-control {
+  margin-left: auto;
+}
+.snapshot-control small {
+  color: #9ca68c;
+  font-size: 9px;
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.account-card {
+  padding: 23px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.account-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.account-heading .badge {
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+.account-card > h3 {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: 24px;
+}
+.account-card > p {
+  font-size: 10px;
+  color: #9ca68d;
+  margin-top: 6px;
+}
+.account-balance {
+  font-family: var(--font-editorial);
+  font-size: 32px;
+  padding: 24px 0 20px;
+}
+.account-card label {
+  font-size: 9px;
+}
+.account-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 7px;
+  color: #a5ae97;
+}
+.account-foot .text-button {
+  font-size: 8px;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  border: 1px dashed #cbd5bc;
+  padding: 35px;
+  text-align: center;
+}
+.empty-state p {
+  margin-top: 12px;
+  color: #92a080;
+  line-height: 1.8;
+  font-size: 12px;
+}
+
+/* Coach. */
+.chat-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+.coach-monogram {
+  border: 1px solid #ded6bc;
+  background: #f4f0e4;
+  color: #ac9260;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+}
+.chat-heading h3 {
+  font-family: var(--font-editorial);
+  font-size: 22px;
+  font-weight: 400;
+}
+.chat-heading p {
+  color: #9aa68b;
+  font-size: 9px;
+  margin-top: 6px;
+}
+#messages {
+  min-height: 330px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding: 24px 0;
+}
+.message {
+  font-size: 12px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  max-width: 92%;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  border-radius: 4px;
+}
+.message.assistant {
+  background: #eff2e7;
+  color: #6e7f5d;
+  border: 1px solid #e0e6d4;
+}
+.message.user {
+  background: var(--forest);
+  color: #e0e5d3;
+  margin-left: auto;
+}
+.chat-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 4px 0 16px;
+}
+.chat-prompts button {
+  background: transparent;
+  border: 1px solid #dfe4d1;
+  color: #89997a;
+  font-size: 9px;
+  padding: 9px 10px;
+  border-radius: 3px;
+}
+.chat-prompts button:hover {
+  background: #edf1e4;
+}
+#chat-form {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+#chat-form input {
+  margin: 0;
+  font-size: 11px;
+}
+.chat-card > .caption {
+  margin-top: 15px;
+  font-size: 9px;
+}
+
+/* Privacy and onboarding. */
+.privacy-setting {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+.privacy-setting > div {
+  flex: 1;
+}
+.privacy-setting p {
+  margin-bottom: 0;
+}
+.switch {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.switch input {
+  width: 40px;
+  height: 24px;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+}
+.switch > span {
+  display: block;
+  width: 40px;
+  height: 23px;
+  border: 1px solid #cdd6be;
+  border-radius: 20px;
+  background: #e8eddf;
+}
+.switch > span::after {
+  content: '';
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background: #b8c4a9;
+  transition: transform 0.2s;
+}
+.switch input:checked + span {
+  background: var(--forest);
+  border-color: var(--forest);
+}
+.switch input:checked + span::after {
+  background: #d6ddc4;
+  transform: translateX(17px);
+}
+.switch input:focus-visible + span {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+.privacy-explainer .text-button {
+  margin-top: 25px;
+}
+.privacy-explainer dl > div {
+  font-size: 9px;
+}
+.privacy-explainer dd {
+  max-width: 150px;
+  line-height: 1.7;
+}
+#privacy .card > .caption {
+  margin-top: 15px;
+}
+.welcome-dialog {
+  width: min(520px, 94vw);
+  padding: 36px 38px 25px;
+}
+.welcome-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-editorial);
+  font-size: 25px;
+  margin-bottom: 31px;
+}
+.welcome-brand > span {
+  color: #a88d5e;
+}
+.welcome-dialog h2 {
+  font-size: 37px;
+  letter-spacing: -1px;
+}
+.welcome-facts {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 15px 0;
+  margin: 20px 0;
+}
+.welcome-facts > div {
+  display: flex;
+  gap: 10px;
+  font-size: 10px;
+  color: #94a080;
+  line-height: 1.8;
+  padding: 6px 0;
+}
+.welcome-facts i {
+  color: #9b9e79;
+  align-self: flex-start;
+}
+.welcome-facts svg {
+  width: 15px;
+  height: 15px;
+}
+.welcome-facts strong {
+  font-weight: 500;
+  color: #687955;
+}
+.welcome-dialog .welcome-policy {
+  font-size: 9px;
+  color: #99a089;
+  margin: 20px 0;
+}
+.welcome-dialog .ghost {
+  margin-top: 6px;
+}

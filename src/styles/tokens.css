@@ -1,0 +1,19 @@
+/* 01 — DESIGN TOKENS. Change these values to reskin the entire application. */
+:root {
+  --forest: #18392f;
+  --forest-deep: #112b24;
+  --forest-soft: #eaf0e9;
+  --gold: #b49b6e;
+  --gold-light: #d4c2a1;
+  --paper: #f6f5f0;
+  --surface: #fffefa;
+  --ink: #24352d;
+  --muted: #7b8278;
+  --line: #e2e4da;
+  --danger: #9b513c;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-editorial: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --sidebar-width: 232px;
+  --radius: 5px;
+  --shadow: 0 12px 40px #17332a0b;
+}

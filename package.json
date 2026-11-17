@@ -1,0 +1,17 @@
+{
+  "name": "homeready-v2",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "description": "HomeReady \u2014 first-home planning with local machine-learning cash-flow forecasts",
+  "scripts": {
+    "start": "node scripts/server.mjs",
+    "dev": "node scripts/server.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
